@@ -1,0 +1,50 @@
+/*HELPER CLASSES*/
+.upper-case{
+   text-transform:uppercase;
+}
+
+/*LODING*/
+.memeimage-loader-container{
+  /* width: 600px; */
+  text-align: center;
+  /* padding-top: 10%; */
+}
+#canvas-loader{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+    border-top-color: #fff;
+    z-index: 1;
+    transform: translate(-50%,-50%);
+}
+#memeimage-loader{
+  display: inline-block;
+  width: 50px;
+  height: 50PX;
+  border-width: 3px;
+  border-top-color: #fff;
+  z-index: 1;
+  transform: translate(-50%,-50%);
+}
+.loader-circular{
+    animation: circle infinite .75s linear;
+    border: 2px solid #0d58c8;
+    border-radius: 100%;
+}
+
+@keyframes circle {
+  0%{
+    -webkit-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+  }
+  100%{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* END  */
