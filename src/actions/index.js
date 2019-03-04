@@ -1,4 +1,4 @@
-import {LOGIN_USER, AUTH_USER, ADMIN_TYPE} from './types.js'
+import {LOGIN_USER, AUTH_USER, ADMIN_TYPE, ACTION_TYPE} from './types.js'
 import CONFIG from '../../config';
 import axios from 'axios';
 
@@ -26,7 +26,7 @@ export const login_user = ({email, password}, cb)=>{
 export const authenticate = (token, cb)=>{
 	   return async (dispatch)=>{
 	   	    try{
-               const result = await axios.post(`${CONFIG.API_URL}/authenticate`, {}, { 
+               const result = await axios.post(`${CONFIG.API_URL}/authenticate`, {}, {
                	     headers: { token }});
                dispatch({
                  type: AUTH_USER,
@@ -59,7 +59,7 @@ export const load_dashboard = ()=>{
 		   if(token){
 			   return async (dispatch)=>{
 			   	    try{
-		               const result = await axios.post(`${CONFIG.API_URL}/admin-dashboard`, {}, { 
+		               const result = await axios.post(`${CONFIG.API_URL}/admin-dashboard`, {}, {
 		               	     headers: { token }});
 		               console.log(result)
 		               dispatch({
@@ -74,12 +74,22 @@ export const load_dashboard = ()=>{
 			   	    }
 			   };
 		  }else{
-		  	return (dispatch)=>{ 		              
+		  	return (dispatch)=>{
 		  	           dispatch({
 		                 type: ADMIN_TYPE,
 		                 payload: null
 			           })
-		  	       } 
+		  	       }
 		  }
 
+}
+
+
+export const dashboard_content = (type)=>{
+       return (dispatch)=>{
+				       dispatch({
+								   type: ACTION_TYPE,
+								   payload : type
+							 })
+			 }
 }

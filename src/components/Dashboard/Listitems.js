@@ -10,20 +10,26 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import {connect} from 'react-redux'
+import CONFIG from '../../../config'
+
+import * as actions from '../../actions'
 
  class MainListItems extends Component{
+
+   componentDidMount(){
+     this.props.dashboard_content(CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES)
+   }
    render(){
-       console.log(this.props.admin)
        return(
           <Fragment>
-              {!this.props.admin && 
+              {!this.props.admin &&
                <div>
                 <div className="memeimage-loader-container"><div id="memeimage-loader" className="loader-circular"></div></div>
                </div>
-              } 
-              
-              {this.props.admin && this.props.admin['account_type']==1 && 
-              <div>         
+              }
+
+              {this.props.admin && this.props.admin['account_type']==1 &&
+              <div>
                 <ListItem button>
                   <ListItemIcon>
                     <DashboardIcon />
@@ -38,16 +44,16 @@ import {connect} from 'react-redux'
                 </ListItem>
               </div>
             }
-            
-            {this.props.admin && this.props.admin['account_type']==2 && 
-              <div>    
-                  <ListItem button>
+
+            {this.props.admin && this.props.admin['account_type']==2 &&
+              <div>
+                  <ListItem onClick={()=>this.props.dashboard_content(CONFIG.DASHBOARD_CONTENT.NEW_REQUEST)} button>
                     <ListItemIcon>
                       <BarChartIcon />
                     </ListItemIcon>
                     <ListItemText primary="Create New Request" />
                   </ListItem>
-                  <ListItem button>
+                  <ListItem onClick={()=>this.props.dashboard_content(CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES)} button>
                     <ListItemIcon>
                       <LayersIcon />
                     </ListItemIcon>
@@ -61,4 +67,4 @@ import {connect} from 'react-redux'
 }
 
 
-export default connect(state=>state)(MainListItems)
+export default connect(state=>state, actions)(MainListItems)

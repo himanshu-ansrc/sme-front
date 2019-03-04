@@ -18,6 +18,8 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainListItems from './ListItems';
 import Tableitems from './Tableitems';
 import Button from '@material-ui/core/Button';
+import CONFIG from '../../../config'
+import NewRequest from './NewRequest'
 
 import {connect} from 'react-redux'
 import * as actions from '../../actions'
@@ -124,7 +126,7 @@ class Dashboard extends React.Component {
        this.props.logout();
        this.setState({
           logout : true
-       })    
+       })
   }
   render() {
     const { classes } = this.props;
@@ -157,7 +159,7 @@ class Dashboard extends React.Component {
               noWrap
               className={classes.title}
             >
-              
+
             </Typography>
             <IconButton color="inherit">
               <Badge badgeContent={1} color="secondary">
@@ -194,10 +196,11 @@ class Dashboard extends React.Component {
 
           </Typography>
           <Typography variant="h4" gutterBottom component="h2">
-            
+
           </Typography>
           <div className={classes.tableContainer}>
-                  <Tableitems/>
+                  {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.NEW_REQUEST && <NewRequest/>}
+                  {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES && <Tableitems/>} 
           </div>
         </main>
       </div>

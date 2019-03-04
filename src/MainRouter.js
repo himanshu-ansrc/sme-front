@@ -2,7 +2,7 @@ import React , {Fragment} from 'react';
 import Header from './components/Header';
 import Login from './components/Login';
 import Dashboard from './components/Dashboard/index';
-
+import CONFIG from '../config'
 // import Search from './components/Search';
 // import MemeMaker from  './components/MemeMaker';
 // import MemeShare from  './components/MemeShare';
@@ -17,7 +17,7 @@ const App = ()=>{
             <div>
              <Switch>
                  <Route exact path="/" component={Login} />
-                 <Route path="/d" component={Dashboard} />
+                 <Route path={CONFIG.ROUTES.DASHBOARD} component={Dashboard} />
              </Switch>
             </div>
         </BrowserRouter>
