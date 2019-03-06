@@ -3,7 +3,8 @@ export default {
 	 TOKEN: 'token',
 	 DASHBOARD_CONTENT : {
 		   NEW_REQUEST: 1,
-		   LIST_CANDIDATES : 2
+		   LIST_CANDIDATES : 2,
+		   SEARCH_CANDIDATES : 3
 	 },
 	 ROUTES:{
 		  DASHBOARD : "/dashborad"

@@ -36,7 +36,7 @@ import * as actions from '../../actions'
                   </ListItemIcon>
                   <ListItemText primary="Check New Request" />
                 </ListItem>
-                <ListItem button>
+                <ListItem onClick={()=>this.props.dashboard_content(CONFIG.DASHBOARD_CONTENT.SEARCH_CANDIDATES)} button>
                   <ListItemIcon>
                     <PeopleIcon />
                   </ListItemIcon>
@@ -51,13 +51,13 @@ import * as actions from '../../actions'
                     <ListItemIcon>
                       <BarChartIcon />
                     </ListItemIcon>
-                    <ListItemText primary="Create New Request" />
+                    <ListItemText primary="Create Request" />
                   </ListItem>
                   <ListItem onClick={()=>this.props.dashboard_content(CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES)} button>
                     <ListItemIcon>
                       <LayersIcon />
                     </ListItemIcon>
-                    <ListItemText primary="View All Requests" />
+                    <ListItemText primary="View Requests" />
                   </ListItem>
               </div>
             }

@@ -17,6 +17,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MainListItems from './ListItems';
 import Tableitems from './Tableitems';
+import SearchCandidates from './SearchCandidates';
 import Button from '@material-ui/core/Button';
 import CONFIG from '../../../config'
 import NewRequest from './NewRequest'
@@ -37,7 +38,7 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
-    padding: '0 8px',
+    padding: '0 4px',
     ...theme.mixins.toolbar,
   },
   appBar: {
@@ -189,18 +190,10 @@ class Dashboard extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.appBarSpacer} />
-          <Typography variant="h4" gutterBottom component="h2">
-
-          </Typography>
-          <Typography component="div" className={classes.chartContainer}>
-
-          </Typography>
-          <Typography variant="h4" gutterBottom component="h2">
-
-          </Typography>
           <div className={classes.tableContainer}>
                   {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.NEW_REQUEST && <NewRequest/>}
                   {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES && <Tableitems/>} 
+                  {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.SEARCH_CANDIDATES && <SearchCandidates/>} 
           </div>
         </main>
       </div>
