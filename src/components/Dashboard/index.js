@@ -15,10 +15,12 @@ import Badge from '@material-ui/core/Badge';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import Button from '@material-ui/core/Button';
+
 import MainListItems from './ListItems';
 import Tableitems from './Tableitems';
-import SearchCandidates from './SearchCandidates';
-import Button from '@material-ui/core/Button';
+import SearchBar from './SearchBar';
+import ListCandidates from './ListCandidates';
 import CONFIG from '../../../config'
 import NewRequest from './NewRequest'
 
@@ -193,7 +195,9 @@ class Dashboard extends React.Component {
           <div className={classes.tableContainer}>
                   {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.NEW_REQUEST && <NewRequest/>}
                   {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.LIST_CANDIDATES && <Tableitems/>} 
-                  {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.SEARCH_CANDIDATES && <SearchCandidates/>} 
+                  {this.props.admin_action==CONFIG.DASHBOARD_CONTENT.SEARCH_CANDIDATES && <SearchBar/>} 
+
+                  {this.props.candidates && <ListCandidates/>}
           </div>
         </main>
       </div>

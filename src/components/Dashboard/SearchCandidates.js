@@ -16,6 +16,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 
+
+
 const styles = theme => ({
   textCenter: {
     textAlign : 'center'
@@ -45,9 +47,9 @@ class SearchCandidates extends Component{
    };
    render(){
       const {classes} = this.props;
-      console.log(classes)
       return (
         <Fragment>
+
           <Card className={classes.card}>
            <CardContent>
             <Typography variant="h6" gutterBottom>

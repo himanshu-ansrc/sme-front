@@ -1,4 +1,4 @@
-import {LOGIN_USER, AUTH_USER, ADMIN_TYPE, ACTION_TYPE} from './types.js'
+import {LOGIN_USER, AUTH_USER, ADMIN_TYPE, ACTION_TYPE, LIST_CANDIDATES} from './types.js'
 import CONFIG from '../../config';
 import axios from 'axios';
 
@@ -93,3 +93,24 @@ export const dashboard_content = (type)=>{
 							 })
 			 }
 }
+
+
+export const  candidates_list = (params)=>{
+	   return async (dispatch)=>{
+	   	    try{
+               const result = await axios.get(`${CONFIG.API_URL}/list-candidates`, {});
+               dispatch({
+                 type: LIST_CANDIDATES,
+                 payload: result['data']
+	           })
+	   	    }catch(e){
+               dispatch({
+                 type: LIST_CANDIDATES,
+                 payload: null
+	           })
+	   	    }
+	 };
+}
+
+
+

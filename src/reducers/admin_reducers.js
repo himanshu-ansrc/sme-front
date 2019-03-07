@@ -1,4 +1,4 @@
-import {ADMIN_TYPE, ACTION_TYPE} from '../actions/types.js'
+import {ADMIN_TYPE, ACTION_TYPE, LIST_CANDIDATES} from '../actions/types.js'
 
 export const admin_type =  (state=null, action)=>{
      switch(action.type){
@@ -17,3 +17,15 @@ export const admin_action =  (state=null, action)=>{
            return state;
      }
 }
+
+
+export const candidates =  (state=null, action)=>{
+     switch(action.type){
+         case LIST_CANDIDATES:
+           return action.payload
+         default:
+           return state;
+     }
+}
+
+
